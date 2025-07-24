@@ -29,7 +29,8 @@ exclude_patterns = []
 
 autodoc_mock_imports = [
 	"astropy",
-	"matplotlib"
+	"matplotlib",
+	"numpy"
 	]
 
 
