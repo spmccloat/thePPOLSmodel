@@ -176,7 +176,7 @@ class Disk:
     """
 
     def __init__(
-            self, name='Unnamed', alpha=1.e-3, vfrag=1000, vfin=10,
+            self, name='Unnamed', alpha=1.e-3, vfrag=1000, vfin=100,
             vfout=1000, rcrit=30, snowmode='none', MSol=1.0, dmf=0.2,
             z0=0.0134, movetemp=False, tmode='simp'):
 
@@ -675,7 +675,7 @@ class Seeds():
                     if (i > 0
                             and t < len(self.disk.tgrid) - 2
                             and mode.count('filtfrac')):
-                        fluxpast[:i, t] = fluxpast[:i, t] * (1 - effic)
+                        fluxpast[:i, t+1] = fluxpast[:i, t+1] * (1 - effic)
 
                     # Isolation mass cut off.
                     if (mode.count('isocut')
