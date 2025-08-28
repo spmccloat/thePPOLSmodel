@@ -11,9 +11,9 @@ Welcome to The PPOLs Model's documentation!
    :caption: Contents:
 
    modules
-   OL18
-   PP
    thePPOLsCode
+   Essential pieces/OL18
+   Essential pieces/PP
 
 
 
