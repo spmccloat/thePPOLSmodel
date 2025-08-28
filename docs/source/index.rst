@@ -7,6 +7,7 @@ Welcome to The PPOLs Model's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   intro
    thePPOLsCode
    seealso
 
