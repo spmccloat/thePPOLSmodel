@@ -24,6 +24,7 @@ The model was built to test outcomes of pebble accretion, specifically during fi
    :caption: Contents:
 
    intro
+   seealso
    thePPOLsCode
 
 Indices and tables
