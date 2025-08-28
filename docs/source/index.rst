@@ -1,7 +1,7 @@
 Welcome to The PPOLs Model's documentation!
 ===========================================
 
-.. include:: intro
+.. include:: intro.rst
 
 .. toctree::
    :maxdepth: 2
