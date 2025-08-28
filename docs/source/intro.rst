@@ -1,3 +1,6 @@
+Intro
+=====
+
 Welcome to the PPOLs Model documentation. 
 
 This Python package is a planet formation model that explores the "pebble snow" mechanism. Users can easily set and run planet formation models for a variety of disk models. Major features include:
