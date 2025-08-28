@@ -226,5 +226,7 @@ def pebble_predictor(snowline_i=np.zeros(1), **pars):
                            * (massout[it, :]/massout[0, :]))
             fDG[it] = np.mean((SigmaDust[:] * (massout[it, :]/massout[0, :]))
                               / SigmaGas[:])
+    Q = cs * OmegaK / (np.pi * Grav * SigmaGas)
+    mdotgas = 3 * np.pi * alpha * SigmaGas * Hgas**2 * OmegaK
 
-    return st, flux, etaI, HgasI, fDG, hgas_temptest, etas_temptest
+    return st, flux, etaI, HgasI, fDG, hgas_temptest, etas_temptest, Q, rgrid

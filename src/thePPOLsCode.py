@@ -21,10 +21,17 @@ RE = c.R_earth.cgs.value  # in cm
 innercomp = 5.5  # density inside SL g/cm3, 50/50 iron/earth
 outercomp = 2.5  # desnity outside SL, g/cm3, 50/50 earth/water
 
+def lumscale(msol=1.0):
+    """Produces luminosity based on stellar mass, from
+    https://en.wikipedia.org/wiki/Mass%E2%80%93luminosity_relation"""
+    #if msol < 0.43:
+        #return 0.23 * msol**2.3
+    #elif msol <= 2.0:4
+    return msol**3
 
 class Disk:
     """
-    Creates protoplanetary disk object and pebble parameters.
+    Creates protoplanetary disk object and pebble parameters. ALTERED.
 
     Calculates and records disk properties, as well as pebble flux and
     St values based on input parameters. Disk object attributes are
@@ -219,19 +226,33 @@ class Disk:
         # alternatives to the power law temperature profile that rely on
         # viscous/irradiation processes in disk.
         # lum = lumscale(msol=MSol)
-
-        # from Ida 2019:
-        # tvis = (130 * (alpha/1e-2)**(-1/5) * MSol**(3/10)
-        #         * (rgrid/au)**(-9/10) * (0.9)**(2/5)
-        # tirr = 130 * (lum)**(2/7) * MSol**(1/7) * (rgrid/au)**(-3/7)
-        # T = np.maximum(tvis, tirr)
-        # T = sci.interpolate.UnivariateSpline(rgrid/au, T, k=2)(rgrid/au)
-        # this smooths the corner where tvis < tirr. overkill?
-        # T = T * np.ones_like(vfrag) #turns the temp prof into array[t,r].
-
         if tmode == 'simp':
-            T = np.ones_like(vfrag) * (280 * MSol**0.5 * (rgrid/au)**(-0.5))
+            T = np.ones_like(vfrag) * (280 * MSol**0.5 * (rgrid/au)**(-1/2))
+        
+        elif tmode == 'ida2019':
+            # from Ida 2019:
+            tvis = (130 * (alpha/1e-2)**(-1/5) * MSol**(3/10) * (1)**(2/5)
+                    * (rgrid/au)**(-9/10))
+            tirr = (130 * (lumscale(MSol))**(2/7) * MSol**(-1/7)
+                    * (rgrid/au)**(-3/7))
+            T = np.maximum(tvis, tirr)
+            # T = sci.interpolate.UnivariateSpline(rgrid/au, T, k=2)(rgrid/au)
+            # this smooths the corner where tvis < tirr. overkill?
+            T = T * np.ones_like(vfrag) #turns the temp prof into array[t,r].
+        
+        elif tmode == 'ida2016':
+            mdot = 10**-8 * MSol**2
+            # from Ida 2016:
+            tvis = (200 * (MSol**(3/10) * alpha/1e-3)**(-1/5) * (mdot/(1e-8))**(2/5)
+                    * (rgrid/au)**(-9/10))
+            tirr = (150 * (lumscale(MSol))**(2/7) * MSol**(-1/7)
+                    * (rgrid/au)**(-3/7))
+            T = np.maximum(tvis, tirr)
+            # T = sci.interpolate.UnivariateSpline(rgrid/au, T, k=2)(rgrid/au)
+            # this smooths the corner where tvis < tirr. overkill?
+            T = T * np.ones_like(vfrag) #turns the temp prof into array[t,r].
 
+    
         # Given a disk, evolved over certain amount of time, produce the
         # types of pebbles [Stokes value] at a given space, at a given
         # time, in the disk.
@@ -243,7 +264,7 @@ class Disk:
         # SNOW MODE CALCULATIONS #
         ##########################
         if snowmode == 'none':
-            st, flux, etas, Hgas, fDG, Hgas_temptest, etas_temptest = \
+            st, flux, etas, Hgas, fDG, Hgas_temptest, etas_temptest, Q, ignore = \
                 pebble_predictor(
                     rgrid=rgrid, tgrid=tgrid, Mstar=Mstar, SigmaGas=SigmaGas,
                     T=T, SigmaDust=SigmaDust, alpha=alpha, vfrag=vfrag,
@@ -266,7 +287,7 @@ class Disk:
 
                 AU1 = rgrid.searchsorted(1*au)
                 snowline_au = (9.2 * (alpha/1.e-2)**(0.61)
-                               * (SigmaGas[AU1]**(0.88)/1000)**(0.80)
+                               * (SigmaGas[AU1]**0.88/1000)**(0.80)
                                * (fDG/0.01)**(0.37))
                 snowline_i = rgrid.searchsorted(snowline_au*au)
 
@@ -306,7 +327,7 @@ class Disk:
                 comp[t, :snowline_i[t]] = innercomp
                 comp[t, snowline_i[t]:] = outercomp
 
-            st, flux, etas, Hgas, fDG, Hgas_temptest, etas_temptest = \
+            st, flux, etas, Hgas, fDG, Hgas_temptest, etas_temptest, Q, ignore = \
                 pebble_predictor(
                     snowline_i=snowline_i, rgrid=rgrid, tgrid=tgrid,
                     Mstar=Mstar, SigmaGas=SigmaGas, T=T, SigmaDust=SigmaDust,
@@ -316,6 +337,9 @@ class Disk:
             self.snowline_i = snowline_i * np.ones_like(tgrid)
             self.snowline_au = snowline_au * np.ones_like(tgrid)
             self.comp = comp
+            
+            SigmaDust = np.concatenate((SigmaDust[:snowline_i[0]] * 0.5,
+                SigmaDust[snowline_i[0]:]))
 
         # st     = Stokes numbers, array of size disk v time
         # flux   = total mass flux, array at points disk v time
@@ -368,7 +392,7 @@ class Disk:
             solidmass = d.msolids / ME
 
         print("Mstar = {} MSol\n"
-              "Disk mass = {:2.3f} dmf / {:.0f} MEarth\n"
+              "Disk mass = {:2.3f} MSol / {:.0f} MEarth\n"
               "Dust mass = {:4.0f} MEarth\n"
               "SigGas/Dust at 1 AU = {:.0f} / {:.0f} [g/cm^2]".format(
                 d.Mstar / MS,
@@ -573,12 +597,16 @@ class Seeds():
             masses."""
 
         # Init arrays, each row is a seed mass of len(tgrid).
-        massgained = np.ones((len(self.seeds), len(self.disk.tgrid))) * np.nan
-        cumulmass = np.ones_like(massgained) * np.nan
-        efficien = np.ones_like(massgained) * np.nan
-        qps = np.ones_like(massgained) * np.nan
-        rads = np.ones_like(massgained) * np.nan
-        isomass = np.ones_like(massgained) * np.nan
+        massgained = np.zeros((len(self.seeds), len(self.disk.tgrid)))
+        #cumulmass = np.zeros_like(massgained)
+        cumulmass = np.expand_dims(self.mass, axis=1) * np.ones(len(self.disk.tgrid))
+        efficien = np.zeros_like(massgained)
+        
+        # qps = np.ones_like(massgained)
+        qps = np.expand_dims(self.qp, axis=1) * np.ones(len(self.disk.tgrid))
+        
+        rads = np.zeros_like(massgained)
+        isomass = np.ones_like(massgained)
         isotime = []
         madeiso = []
 
@@ -746,7 +774,7 @@ class Seeds():
         self.wmf = wmf  # water mass fraction
         self.tpmass = np.sum(cumulmass, axis=0)
 
-    def gtplot(self, xlim=[0.07, 25], ylim=[0.75e-3, 40], **kwargs):
+    def gtplot(self, xlim=[0.07, 25], ylim=[0.75e-3, 40], ysnow=0.105, **kwargs):
         """Convenience plotter for single a single run.
 
         Quick plotting feature to show protoplanet masses, water mass
@@ -757,6 +785,10 @@ class Seeds():
         ----------
         xlim, ylim : [min, max]
             Sets axis limits for plot, au.
+
+        ysnow : float
+            Fine placement control of the label and arrow for the snow
+            line. Arrow will be -0.015 label, in axis units.
 
         **kwargs
             title : str
@@ -769,8 +801,11 @@ class Seeds():
             self.disk.MSol, r'$M_{\odot}$', self.disk.dmf, len(self.seeds_au))
         if 'title' in kwargs:
             title = kwargs['title']
+        figsize = [6,5]
+        if 'figsize' in kwargs:
+             figsize = kwargs['figsize']
 
-        fig, ax = plt.subplots(constrained_layout=True)
+        fig, ax = plt.subplots(constrained_layout=True, figsize=figsize)
 
         # Colors
         cmap = (ListedColormap(
@@ -805,7 +840,7 @@ class Seeds():
 
         # Plot the pebble isolation mass as dashed line, mark seeds that
         # reach isolation mass.
-        ax.plot(self.seeds_au, self.isos[:, 0], ls=':', c='darkgrey', zorder=0,
+        ax.plot(self.seeds_au, self.isos[:, -1], ls=':', c='darkgrey', zorder=0,
                 alpha=0.95, label="pebble isolation mass")
         ax.scatter(self.seeds_au[self.madeiso], self.finalmass[self.madeiso],
                    marker='x', c='red', s=25, label='Made Iso Mass')
@@ -820,10 +855,10 @@ class Seeds():
             ax.axvline(self.disk.snowline_au[0], ls='--', c=slc, zorder=0,
                        alpha=0.6)
             ax.annotate("snow line", color=slc,
-                        xytext=(self.disk.snowline_au[-1]+0.18, 0.105),
-                        xy=(self.disk.snowline_au[-1], 0.105))
-            ax.annotate("", xytext=(self.disk.snowline_au[0], 0.09),
-                        xy=(self.disk.snowline_au[-1], 0.09),
+                        xytext=(self.disk.snowline_au[-1]+0.18, ysnow),
+                        xy=(self.disk.snowline_au[-1], ysnow))
+            ax.annotate("", xytext=(self.disk.snowline_au[0], ysnow-0.015),
+                        xy=(self.disk.snowline_au[-1], ysnow-0.015),
                         arrowprops=dict(arrowstyle="->", color=slc))
 
         elif type(self.disk.snowmode) is float or str('temp'):
@@ -832,7 +867,7 @@ class Seeds():
                         xytext=(self.disk.snowline_au[0]+0.18, 0.105),
                         xy=(self.disk.snowline_au[0], 0.105))
         ax.legend()
-
+        #return fig
 
 def RfromD(m, d):
     """Calculate radius from mass and density i.e. d=m/v."""
