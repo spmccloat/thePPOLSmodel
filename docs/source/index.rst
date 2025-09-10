@@ -8,8 +8,11 @@ Welcome to The PPOLs Model's documentation!
    :caption: Contents:
 
    intro
+   Getting Started
+   Finer Points and Advanced
    thePPOLsCode
-   seealso
+   seealso/PP
+   seealso/OL18
 
 Indices and tables
 ==================
