@@ -12,7 +12,10 @@ We approach this mystery by exploring how planets form, and specifically with a 
 The PPOLs Model looks at this process over a wide range of stars (some bigger and hotter, and others smaller and cooler than the Sun), considers where those pebbles are dry or contain water, and tracks how big the planets can grow and how much water they receive. We found that three arrangements of planetary systems were typical: a small collection of roughly Earth-size planets tucked in close to the star with no gas giants; systems of only gas giants located farther away from the star; and middling arrangement that does have both Earth-size planets and gas giants together. Most interesting of all - the conditions that led to the Earth + gas giant together are a relatively narrow set of conditions, which could explain why our Solar System (as of yet) appears to be uncommon.
 
 
-.. image:: figures/fig3-lowmedhighmassarch.png
+.. figure:: figures/fig3-lowmedhighmassarch.png
+   :scale: 75%
+
+   Displaying the mass of planets (y-axis, units of Earth-mass) vs their orbital distance (x-axis, units in au), color-coded by their water content, grown around a 1 solar mass star. Each line connects planets with the same initial disk mass ($f_{disk}$), which increases from the "low mass" (top) to "high mass" (bottom) panels.  The architectures separate into a low-mass arrangement (top), with a handful of Earth-mass planets, but no gas giants; a middle-mass arrangement (middle), with both Earth-mass and gas giants; and a high-mass arrangement (bottom), with only gas giant planets. See the full paper for details.
 
 Features of the Model
 ---------------------

@@ -1,5 +1,5 @@
 Introduction
-===========================================
+============
 
 .. include:: intro.rst
 
@@ -10,8 +10,7 @@ Introduction
    Getting Started
    Finer Points and Advanced
    thePPOLsCode
-   seealso/PP
-   seealso/OL18
+   seealso
 
 Indices and tables
 ==================
