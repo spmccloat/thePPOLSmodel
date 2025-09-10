@@ -1,4 +1,4 @@
-Welcome to The PPOLs Model's documentation!
+Introduction
 ===========================================
 
 .. include:: intro.rst
@@ -7,7 +7,6 @@ Welcome to The PPOLs Model's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   intro
    Getting Started
    Finer Points and Advanced
    thePPOLsCode

@@ -1,5 +1,3 @@
-Introduction
-============
 
 Welcome to the docs for The PPOLs Model - a Python-based planet formation model that explores the "pebble snow" mechanism and its ability to shape planetary system architectures. Improvements to the docs are on-going. Please reach out to S. McCloat via email for questions, code, or links.
 
