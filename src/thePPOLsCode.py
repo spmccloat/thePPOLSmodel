@@ -599,8 +599,7 @@ class Seeds():
         # Init arrays, each row is a seed mass of len(tgrid).
         massgained = np.zeros((len(self.seeds), len(self.disk.tgrid)))
         efficien = np.zeros_like(massgained)
-        cumulmass = np.expand_dims(self.mass, axis=1) 
-                    * np.ones(len(self.disk.tgrid))
+        cumulmass = np.expand_dims(self.mass, axis=1) * np.ones(len(self.disk.tgrid))
         qps = np.expand_dims(self.qp, axis=1) * np.ones(len(self.disk.tgrid))
         
         rads = np.zeros_like(massgained)
