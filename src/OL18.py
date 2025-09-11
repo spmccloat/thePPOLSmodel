@@ -55,9 +55,10 @@ def epsilon_general (mode='', **pars):
 
     Notes
     -----
-    The calculations of this module remain unchanged from originals, but
+    SM: The calculations of this module remain unchanged from originals, but
     this documentation has been modified to comply with numpydoc style.
-    In case of turbulence, please specify the rms-velocities explicitly
+    
+    OL: In case of turbulence, please specify the rms-velocities explicitly
     via sigvec OR based on alphaz using nvec method. If none is given
     then nvec = (1,1,1) is assumed.
     """

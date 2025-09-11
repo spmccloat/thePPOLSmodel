@@ -394,7 +394,7 @@ class Disk:
         print("Mstar = {} MSol\n"
               "Disk mass = {:2.3f} MSol / {:.0f} MEarth\n"
               "Dust mass = {:4.0f} MEarth\n"
-              "SigGas/Dust at 1 AU = {:.0f} / {:.0f} [g/cm^2]".format(
+              "SigmaGas/Dust at 1 AU = {:.0f} / {:.0f} [g/cm^2]".format(
                 d.Mstar / MS,
                 d.mdisk / MS, d.mdisk * d.Mstar / MS / ME,
                 solidmass,

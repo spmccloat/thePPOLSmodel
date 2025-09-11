@@ -11,6 +11,7 @@ Introduction
    Finer Points and Advanced
    thePPOLsCode
    seealso
+   Tutorial
 
 Indices and tables
 ==================
