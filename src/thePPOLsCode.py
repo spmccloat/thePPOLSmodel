@@ -243,8 +243,8 @@ class Disk:
         elif tmode == 'ida2016':
             mdot = 10**-8 * MSol**2
             # from Ida 2016:
-            tvis = (200 * (MSol**(3/10) * alpha/1e-3)**(-1/5) * (mdot/(1e-8))**(2/5)
-                    * (rgrid/au)**(-9/10))
+            tvis = (200 * (MSol**(3/10) * alpha/1e-3)**(-1/5)
+                    * (mdot/(1e-8))**(2/5) * (rgrid/au)**(-9/10))
             tirr = (150 * (lumscale(MSol))**(2/7) * MSol**(-1/7)
                     * (rgrid/au)**(-3/7))
             T = np.maximum(tvis, tirr)
@@ -598,11 +598,9 @@ class Seeds():
 
         # Init arrays, each row is a seed mass of len(tgrid).
         massgained = np.zeros((len(self.seeds), len(self.disk.tgrid)))
-        #cumulmass = np.zeros_like(massgained)
-        cumulmass = np.expand_dims(self.mass, axis=1) * np.ones(len(self.disk.tgrid))
         efficien = np.zeros_like(massgained)
-        
-        # qps = np.ones_like(massgained)
+        cumulmass = np.expand_dims(self.mass, axis=1) 
+                    * np.ones(len(self.disk.tgrid))
         qps = np.expand_dims(self.qp, axis=1) * np.ones(len(self.disk.tgrid))
         
         rads = np.zeros_like(massgained)
