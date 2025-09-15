@@ -42,13 +42,6 @@ convenience function to print basic information about the disk.
     disk = plc.Disk(MSol=1.0, dmf=0.1, snowmode=3.5)
     disk.inspect() #inspect(plots=True)
 
-
-.. parsed-literal::
-
-    C:\Users\Sean\Documents\github\thePPOLsModel\src\PP.py:197: RuntimeWarning: overflow encountered in exp
-      stini = st0 * np.exp(tgrid[it]/tgrowth[:])
-    
-
 .. parsed-literal::
 
     Mstar = 1.0 MSol
@@ -87,7 +80,7 @@ water mass fraction, snow line position, and pebble isolation mass:
 
 
 
-.. image:: Tutorial_files%5CTutorial_7_0.png
+.. image:: Tutorial_files/Tutorial_7_0.png
 
 
 As with ``Disk``, there are many attributes added to the ``Seeds``
@@ -114,8 +107,7 @@ can be plotted using:
 
 
 
-
-.. image:: Tutorial_files%5CTutorial_9_1.png
+.. image:: Tutorial_files/Tutorial_9_1.png
 
 
 Example 2 - Evolving Snow Line
@@ -140,16 +132,7 @@ et al. 2025), use ``snowmode='evol'`` during ``Disk()`` creation:
     seeds_2.grow()
     seeds_2.gtplot(ylim=[1e-5,1e2], xlim=[0.01,1])
 
-
-.. parsed-literal::
-
-    C:\Users\Sean\Documents\github\thePPOLsModel\src\PP.py:197: RuntimeWarning: overflow encountered in exp
-      stini = st0 * np.exp(tgrid[it]/tgrowth[:])
-    
-
-
-.. image:: Tutorial_files%5CTutorial_11_1.png
-
+.. image:: Tutorial_files/Tutorial_11_1.png
 
 Notice how this time the starting and end locations of the snow line are
 marked with the light blue dashed –> solid line. Notice also you can
@@ -187,27 +170,7 @@ introduction mass and formation time of the seeds:
     seeds_3.grow()
     seeds_3.gtplot(ylim=[1e-5,1e2], xlim=[0.01,100])
 
-
-.. parsed-literal::
-
-    C:\Users\Sean\Documents\github\thePPOLsModel\src\PP.py:197: RuntimeWarning: overflow encountered in exp
-      stini = st0 * np.exp(tgrid[it]/tgrowth[:])
-    
-
-.. parsed-literal::
-
-    C:\Users\Sean\Documents\github\thePPOLsModel\src\PP.py:197: RuntimeWarning: overflow encountered in multiply
-      stini = st0 * np.exp(tgrid[it]/tgrowth[:])
-    
-
-.. parsed-literal::
-
-    C:\Users\Sean\Documents\github\thePPOLsModel\src\thePPOLsCode.py:296: RuntimeWarning: invalid value encountered in power
-      movein = movein**(1/6)  # CAREFUL: this is arbitrary
-    
-
-
-.. image:: Tutorial_files%5CTutorial_14_3.png
+.. image:: Tutorial_files/Tutorial_14_3.png
 
 
 In Example 3 above, we also used ``snowmode='temp'`` to flesh out its
