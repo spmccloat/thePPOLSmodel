@@ -2,6 +2,7 @@ The PPOLs Model - Tutorial & Examples
 =====================================
 
 Growing planetary systems with pebble snow.
+Download this page as a :download:'jupyter notebook <../../src/Tutorial.ipynb>'.
 
 Getting Started
 ~~~~~~~~~~~~~~~

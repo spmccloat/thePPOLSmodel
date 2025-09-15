@@ -8,10 +8,9 @@ Introduction
    :caption: Contents:
 
    Getting Started
-   Finer Points and Advanced
+   Tutorial
    thePPOLsCode
    seealso
-   Tutorial
 
 Indices and tables
 ==================
