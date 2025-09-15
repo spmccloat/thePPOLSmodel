@@ -85,9 +85,9 @@ class Disk:
                 pseudo-physical) scaling with the dust/gas fraction.
 
     movetemp : bool, default False
-        Determines if the snow line evolves when `snowmode` is 'temp' or
-        float. Experimental setting to "artifically" evolve the snow
-        line and compare to models using 'evol'.
+        Experimental: determines if the snow line evolves when
+        `snowmode` is 'temp' or float. Currently an arbitrary function
+        of fDG to approximate evolution calculated with 'evol'.
 
     MSol : float
         Stellar mass, in solar mass units. Default is 1.0.
@@ -104,11 +104,11 @@ class Disk:
         Metallicity of the disk, specifically - the initial dust/gas
         fraction. Default is 0.0134.
 
-    tmode : 'simp'
-        Obsolete: intended to change temperature profiles between a
-        power law scaled with stellar mass, and a viscous/irradation
-        regime. Calculations for viscous/irradation are present but
-        unused.
+    tmode : {'simp', 'ida22016'}
+        Change temperature profiles between a simple power law that
+        scales with stellar mass (default), or based on Ida et al. 2016
+        that accounts for viscous/irradation mechanisms. See Ida et al.
+        2016 Eq 7 and Eq 8.
 
     Attributes
     ----------
@@ -469,10 +469,9 @@ class Seeds():
             which is used for all seeds, or must be ``len(seeds_au)``,
             where each initial mass is set individually.
         tintro : float or array, default=1
-            Future: can set the formation time of seeds as index in
-            tgrid, represented as time when seed will "appear" in disk.
-            Can be single number to set for all seeds, or array of
-            ``len(seeds_au)`` to set individually.
+            Set the formation time of seeds in yrs, i.e. time when seed
+            will "appear" in disk. Can be single number to set for all
+            seeds, or array of ``len(seeds_au)`` to set individually.
         scale : bool, default=False
             Experimental: If True, will scale seed locations with
             stellar mass, such that the new locations will have same
