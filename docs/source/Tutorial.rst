@@ -13,8 +13,7 @@ Users can model planet formation via pebble snow by:
 -  use class function ``Seeds.grow()`` to grow the planetesimals and
    store outputs as attributes
 
-**For a full list of parameters, see the
-documentation**\ `here <https://spmccloat.github.io/thePPOLSmodel/index.html>`__\ **.**
+**For a full list of parameters, see the documentation** \`here <https://spmccloat.github.io/thePPOLSmodel/thePPOLsCode.html>`_\.
 
 Begin by importing:
 
