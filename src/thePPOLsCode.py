@@ -31,7 +31,7 @@ def lumscale(msol=1.0):
 
 class Disk:
     """
-    Creates protoplanetary disk object and pebble parameters. ALTERED.
+    Creates protoplanetary disk object and pebble parameters.
 
     Calculates and records disk properties, as well as pebble flux and
     St values based on input parameters. Disk object attributes are

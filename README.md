@@ -32,3 +32,5 @@ The PPOLs Mdel uses the pebble accretion efficiency code "epsilon" from [Liu & O
 CREDITS
 
 If you use this code for your work, please cite the corresponding paper, this github repository and/or the corresponding Zenodo DOI.
+
+The PPOLs Model - [![DOI](https://zenodo.org/badge/1025170821.svg)](https://doi.org/10.5281/zenodo.17137567)
