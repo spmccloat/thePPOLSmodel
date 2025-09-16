@@ -1,11 +1,9 @@
-The PPOLs Model - Tutorial & Examples
+Tutorial & Examples
 =====================================
 
 Growing planetary systems with pebble snow.
 Download this page as a :download:`jupyter notebook <../../src/Tutorial.ipynb>`.
 
-Getting Started
-~~~~~~~~~~~~~~~
 
 Users can model planet formation via pebble snow by:
 
@@ -15,10 +13,7 @@ Users can model planet formation via pebble snow by:
 -  use class function ``Seeds.grow()`` to grow the planetesimals and
    store outputs as attributes
 
-This tutorial will present some simple examples of major parameters
-users might be interested in, with finer examples later.
-
-**For a full list of ``Disk()`` and ``Seeds()`` parameters, see the
+**For a full list of parameters, see the
 documentation**\ `here <https://spmccloat.github.io/thePPOLSmodel/index.html>`__\ **.**
 
 Begin by importing:

@@ -7,7 +7,7 @@ An introductory paper is McCloat, Mulders, & Fieber-Beyer (2025).
 
 HOW TO USE THE CODE
 
-Users are best served by reading the docs[link], along with the jupyter notebook Tutorial.ipynb.
+Users are best served by [reading the docs](https://spmccloat.github.io/thePPOLSmodel/), along with the jupyter notebook Tutorial.ipynb.
 
 LICENSE
 
@@ -15,7 +15,7 @@ This code is licensed under the GNU General Public License v3. Among other thing
 
 MODIFICATIONS TO ORIGINAL CODE
 
-As per the license, the code presented in "The PPOLs Model" uses pebble-predictor (Drazkowska et al., 2021), [![DOI](https://zenodo.org/badge/300679267.svg)](https://zenodo.org/badge/latestdoi/300679267). The original code and calculations of pebble-predictor remain intact, with the following modifications:
+As per the license, the code presented in "The PPOLs Model" uses pebble-predictor [(Drazkowska et al., 2021)](https://www.aanda.org/articles/aa/abs/2021/03/aa39925-20/aa39925-20.html), [![DOI](https://zenodo.org/badge/300679267.svg)](https://zenodo.org/badge/latestdoi/300679267). The original code and calculations of pebble-predictor remain intact, with the following modifications:
 
 - function now accepts parameter for snow line location, which defaults to no snow line
 - disk dust surface density (SigmaDust) is reduced by 1/2 inside snow line when present
