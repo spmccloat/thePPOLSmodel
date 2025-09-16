@@ -3,6 +3,10 @@ Welcome to the docs for The PPOLs Model - a Python-based planet formation model 
 
 The model and results have been peer-reviewed and accepted for publication in the Astrophysical Journal (ApJ), and will appear in an upcoming volume. You can see the accepted manuscript on arXiv [here].
 
+See `license information and credits`_.
+
+.. _license information and credits: https://github.com/spmccloat/thePPOLSmodel/tree/main?tab=readme-ov-file#readme
+
 Plain Language Summary
 ----------------------
 The Solar System has small, rocky planets like Earth near the Sun and large gas giants like Jupiter farther out. For a long time, this was the only planetary arrangement we knew. Now, with thousands of exoplanets discovered, one big mystery is how the Solar System fits into the bigger picture: are we unusual for stars like the Sun? Should Earth-like planets have more or less water? How often do systems have both an Earth-like planet and a Jupiter-like planet?
