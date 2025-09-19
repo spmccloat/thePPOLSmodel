@@ -301,24 +301,36 @@ def f_set_i (delVi, sigi, vast):
     """
     Calculates fset for a single direction.
     """
+
     fset = (np.exp(-aset*delVi**2 / (vast**2+aturb*sigi**2)) * vast
            / np.sqrt(vast**2 + aturb*sigi**2))
     return fset
 
 def f_set (delVvec, sigPvec, vast):
+    """
+    Exponential decay function to account for transition between
+    settling and ballistic regimes.
+    """
+
     fset = 1.
     for k in range(3):
         fset *= f_set_i(delVvec[k], sigPvec[k], vast)
     return fset
 
 
-def eps_3D(tau, qp, eta, heff, **dumargs): 
-
+def eps_3D(tau, qp, eta, heff, **dumargs):
+    """
+    Calculate accretion efficiency in 3D regime.
+    """
+    
     eps3D = A3 * qp / (eta*(heff + tiny))
     return eps3D
 
 
-def eps_2D(tau, qp, eta, delVy, **dumargs): 
+def eps_2D(tau, qp, eta, delVy, **dumargs):
+    """
+    Calculate accretion efficiency in 2D regime.
+    """
 
     eps2D = A2 * np.sqrt(qp/tau/eta**2 * delVy)
     return eps2D
@@ -328,6 +340,7 @@ def eps_2D_bal(tau, qp, eta, delV, Rp, **dumargs):
     """
     Equation (A.15) of Paper I
     """
+    
     eps2Dbal = Rp / (2*np.pi*tau*eta) * np.sqrt(2*qp/Rp + delV**2)
     return eps2Dbal
 
@@ -336,6 +349,7 @@ def eps_3D_bal (tau, qp, eta, delV, Rp, hP, **dumargs):
     """
     Equation (A.15) of Paper I
     """
+    
     eps3Dbal = (1. / (4 * np.sqrt(2*np.pi) * tau * eta * hP)
                * (2*qp*Rp/delV + delV*Rp**2))
     return eps3Dbal
@@ -346,6 +360,7 @@ def eps_23 (eps2D, eps3D):
     The mixing expressions
     Essentially, eps23 = min(eps2D, eps3D)
     """
+    
     eps23 = (eps2D**-2 + eps3D**-2)**-0.5
     return eps23
 
