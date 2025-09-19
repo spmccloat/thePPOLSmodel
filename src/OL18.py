@@ -228,6 +228,7 @@ def eps_set(tau, qp, eta, hgas, alphaz):
     modulation factor or ballistic interactions. ASSUMING zero
     eccentricities, inclinations and standard.
     """
+    
     delv = v_circ (tau, eta, qp)  # relative velocity
     # approximation for pebble scale height
     hP = np.sqrt(alphaz / (alphaz+tau)) * hgas
@@ -357,8 +358,8 @@ def eps_3D_bal (tau, qp, eta, delV, Rp, hP, **dumargs):
 
 def eps_23 (eps2D, eps3D):
     """
-    The mixing expressions
-    Essentially, eps23 = min(eps2D, eps3D)
+    The mixing expressions to transition between 3D and 2D.
+    Essentially, eps23 = min(eps2D, eps3D).
     """
     
     eps23 = (eps2D**-2 + eps3D**-2)**-0.5
