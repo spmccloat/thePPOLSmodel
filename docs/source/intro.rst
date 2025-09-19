@@ -1,7 +1,9 @@
 
 Welcome to the docs for The PPOLs Model - a Python-based planet formation model that explores the "pebble snow" mechanism and its ability to shape planetary system architectures. Improvements to the docs are on-going. Please reach out to S. McCloat via email for questions, code, or links.
 
-The model and results have been peer-reviewed and accepted for publication in the Astrophysical Journal (ApJ), and will appear in an upcoming volume. You can see the accepted manuscript on arXiv [here].
+The work has been peer-reviewed and **accepted for publication in the Astrophysical Journal (ApJ)**, and will appear in an upcoming volume. You can see `the accepted manuscript on arXiv`_.
+
+.. _the accepted manuscript on arXiv: https://doi.org/10.48550/arXiv.2509.14101
 
 See `license information and credits`_.
 
@@ -23,9 +25,8 @@ This last arrangement only occurred for a narrow range of conditions, suggesting
 
 .. figure:: figures/fig3-lowmedhighmassarch.png
 
-   Displaying the mass of planets (y-axis, units of Earth-mass) vs their orbital distance (x-axis, units in au), color-coded by their water content, grown around a 1 solar mass star. Each line connects planets with the same initial disk mass |fdisk|, which increases from the "low mass" (top) to "high mass" (bottom) panels.  The architectures separate into a low-mass arrangement (top), with a handful of Earth-mass planets, but no gas giants; a middle-mass arrangement (middle), with both Earth-mass and gas giants; and a high-mass arrangement (bottom), with only gas giant planets. See the full paper for details.
+   Displaying the mass of planets (y-axis, units of Earth-mass) vs their orbital distance (x-axis, units in au), color-coded by their water content, grown around a 1 solar mass star. Each line connects planets with the same initial disk mass f\ :sub:`disk`, which increases from the "low mass" (top) to "high mass" (bottom) panels.  The architectures separate into a low-mass arrangement (top), with a handful of Earth-mass planets, but no gas giants; a middle-mass arrangement (middle), with both Earth-mass and gas giants; and a high-mass arrangement (bottom), with only gas giant planets. See the full paper for details.
 
-   .. |fdisk| replace:: f\ :sub: `disk`
 
 Features of the Model
 ---------------------
@@ -44,4 +45,4 @@ Users can easily set and run planet formation models for a variety of disk model
 
 * planetesimal seed masses that grow simultaneously via pebble accretion and remove ("filter") pebble mass as it drifts inward
 
-The model was built to test outcomes of pebble accretion, specifically during first ~10 million years of the protoplanetary disk when gas is still present. It may serve well as inputs for longer n-body simulations.
+The model tests outcomes of pebble accretion, specifically during first ~10 million years of the protoplanetary disk when gas is still present. It may serve well as inputs for longer n-body simulations.

@@ -39,6 +39,7 @@ convenience function to print basic information about the disk.
     disk = plc.Disk(MSol=1.0, dmf=0.1, snowmode=3.5)
     disk.inspect() #inspect(plots=True)
 
+Output:
 .. parsed-literal::
 
     Mstar = 1.0 MSol
@@ -50,7 +51,7 @@ convenience function to print basic information about the disk.
 
 ``disk`` contains many informative attributes, such as the stellar mass,
 disk mass, temperatue profile, and location of the snow line,
-e.g. ``diskprime.MSol``, ``diskprime.dmf``, ``diskprime.snowline_au``.
+e.g. ``disk.MSol``, ``disk.dmf``, ``disk.snowline_au``.
 The attributes ``disk.tgrid`` and ``disk.rgrid`` provide the time and
 spatial dimension of the disk in cgs units (seconds and cm).
 
@@ -94,14 +95,6 @@ can be plotted using:
     ax.set(yscale='log', xscale='log', ylabel='Mass [$M_{\oplus}$]', xlabel='Time [yr]',
           title='Individual Growth Tracks')
     ax.legend()
-
-
-
-
-.. parsed-literal::
-
-    <matplotlib.legend.Legend at 0x1da9b60c790>
-
 
 
 .. image:: Tutorial_files/Tutorial_9_1.png
