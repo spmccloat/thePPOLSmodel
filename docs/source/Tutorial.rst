@@ -40,6 +40,7 @@ convenience function to print basic information about the disk.
     disk.inspect() #inspect(plots=True)
 
 Output:
+
 .. parsed-literal::
 
     Mstar = 1.0 MSol

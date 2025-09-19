@@ -22,11 +22,8 @@ innercomp = 5.5  # density inside SL g/cm3, 50/50 iron/earth
 outercomp = 2.5  # desnity outside SL, g/cm3, 50/50 earth/water
 
 def lumscale(msol=1.0):
-    """Produces luminosity based on stellar mass, from
-    https://en.wikipedia.org/wiki/Mass%E2%80%93luminosity_relation"""
-    #if msol < 0.43:
-        #return 0.23 * msol**2.3
-    #elif msol <= 2.0:4
+    """Luminosity based on stellar mass, currently L ~ M^3."""
+    
     return msol**3
 
 class Disk:
@@ -104,7 +101,7 @@ class Disk:
         Metallicity of the disk, specifically - the initial dust/gas
         fraction. Default is 0.0134.
 
-    tmode : {'simp', 'ida22016'}
+    tmode : {'simp', 'ida2016'}
         Change temperature profiles between a simple power law that
         scales with stellar mass (default), or based on Ida et al. 2016
         that accounts for viscous/irradation mechanisms. See Ida et al.
