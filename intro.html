@@ -1,0 +1,138 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plain Language Summary &mdash; The PPOLs Model 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            The PPOLs Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Getting%20Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thePPOLsCode.html">thePPOLsCode module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">The PPOLs Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Plain Language Summary</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/intro.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Welcome to the docs for The PPOLs Model - a Python-based planet formation model that explores the “pebble snow” mechanism and its ability to shape planetary system architectures. Improvements to the docs are on-going. Please reach out to S. McCloat via email for questions, code, or links.</p>
+<p>The work has been peer-reviewed and <strong>accepted for publication in the Astrophysical Journal (ApJ)</strong>, and will appear in an upcoming volume. You can see <a class="reference external" href="https://doi.org/10.48550/arXiv.2509.14101">the accepted manuscript on arXiv</a>.</p>
+<p>See <a class="reference external" href="https://github.com/spmccloat/thePPOLSmodel/tree/main?tab=readme-ov-file#readme">license information and credits</a>.</p>
+<section id="plain-language-summary">
+<h1>Plain Language Summary<a class="headerlink" href="#plain-language-summary" title="Link to this heading"></a></h1>
+<p>The Solar System has small, rocky planets like Earth near the Sun and large gas giants like Jupiter farther out. For a long time, this was the only planetary arrangement we knew. Now, with thousands of exoplanets discovered, one big mystery is how the Solar System fits into the bigger picture: are we unusual for stars like the Sun? Should Earth-like planets have more or less water? How often do systems have both an Earth-like planet and a Jupiter-like planet?</p>
+<p>To explore this, we study how planets form through a process called “pebble accretion”. Instead of planets growing only by the cumulative smashing of asteroid-sized rocks, maybe tiny pebble-sized rocks drift toward the star and are collected by growing planets, helping them quickly reach full size.</p>
+<p>The PPOLs Model looks at this process over a wide range of stars (some bigger and hotter, and others smaller and cooler than the Sun), considers where those pebbles are dry or contain water, and simulates forming many planetary systems. We found three arrangements of planetary systems were typical:</p>
+<ol class="arabic simple">
+<li><p>Several Earth-sized planets close to the star with no gas giants.</p></li>
+<li><p>Only gas giants, farther from the star.</p></li>
+<li><p>A mix of Earth-sized planets and gas giants together - like our Solar System.</p></li>
+</ol>
+<p>This last arrangement only occurred for a narrow range of conditions, suggesting the Solar System blueprint may be uncommon.</p>
+<figure class="align-default" id="id1">
+<img alt="_images/fig3-lowmedhighmassarch.png" src="_images/fig3-lowmedhighmassarch.png" />
+<figcaption>
+<p><span class="caption-text">Displaying the mass of planets (y-axis, units of Earth-mass) vs their orbital distance (x-axis, units in au), color-coded by their water content, grown around a 1 solar mass star. Each line connects planets with the same initial disk mass f<sub>disk</sub>, which increases from the “low mass” (top) to “high mass” (bottom) panels.  The architectures separate into a low-mass arrangement (top), with a handful of Earth-mass planets, but no gas giants; a middle-mass arrangement (middle), with both Earth-mass and gas giants; and a high-mass arrangement (bottom), with only gas giant planets. See the full paper for details.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="features-of-the-model">
+<h1>Features of the Model<a class="headerlink" href="#features-of-the-model" title="Link to this heading"></a></h1>
+<p>Users can easily set and run planet formation models for a variety of disk models. Major features include:</p>
+<ul class="simple">
+<li><p>protoplanetary disk dust mass that depletes as it converts into pebbles</p></li>
+<li><p>temperature profile that can be a simple power law or account for viscous/irradiation heating (e.g. Ida et al. 2016)</p></li>
+<li><p>a snow line (water-ice) that can be based on temperature, set explicitly, or self-consistently evolve with disk conditions</p></li>
+<li><p>evolving zones where dry vs. water ich pebbles are tracked</p></li>
+<li><p>any number of planetesimal seed masses, with any initial mass, introduced at any time</p></li>
+<li><p>planetesimal seed masses that grow simultaneously via pebble accretion and remove (“filter”) pebble mass as it drifts inward</p></li>
+</ul>
+<p>The model tests outcomes of pebble accretion, specifically during first ~10 million years of the protoplanetary disk when gas is still present. It may serve well as inputs for longer n-body simulations.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, S. McCloat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

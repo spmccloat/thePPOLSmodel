@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>thePPOLsCode module &mdash; The PPOLs Model 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="See Also" href="seealso.html" />
+    <link rel="prev" title="Tutorial &amp; Examples" href="Tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            The PPOLs Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting%20Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial &amp; Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">thePPOLsCode module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#thePPOLsCode.Disk"><code class="docutils literal notranslate"><span class="pre">Disk</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#thePPOLsCode.Disk.inspect"><code class="docutils literal notranslate"><span class="pre">Disk.inspect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#thePPOLsCode.Miso"><code class="docutils literal notranslate"><span class="pre">Miso()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thePPOLsCode.RfromD"><code class="docutils literal notranslate"><span class="pre">RfromD()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thePPOLsCode.Seeds"><code class="docutils literal notranslate"><span class="pre">Seeds</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#thePPOLsCode.Seeds.grow"><code class="docutils literal notranslate"><span class="pre">Seeds.grow()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thePPOLsCode.Seeds.gtplot"><code class="docutils literal notranslate"><span class="pre">Seeds.gtplot()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#thePPOLsCode.lumscale"><code class="docutils literal notranslate"><span class="pre">lumscale()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">The PPOLs Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">thePPOLsCode module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/thePPOLsCode.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-thePPOLsCode">
+<span id="theppolscode-module"></span><h1>thePPOLsCode module<a class="headerlink" href="#module-thePPOLsCode" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="thePPOLsCode.Disk">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">thePPOLsCode.</span></span><span class="sig-name descname"><span class="pre">Disk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Unnamed'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vfrag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vfin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vfout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rcrit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">snowmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MSol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dmf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0134</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">movetemp</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'simp'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.Disk" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates protoplanetary disk object and pebble parameters.</p>
+<p>Calculates and records disk properties, as well as pebble flux and
+St values based on input parameters. Disk object attributes are
+recorded at each space on AU grid, and time. Here it is possible to
+see how pebbles coagulate and drift without any protoplanets.
+Calculations related to placement and growth of seeds are handled
+via Seeds object.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>name</strong><span class="classifier">string, default ‘Unnamed’</span></dt><dd><p>Name used in some plotting and inspection methods.</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float</span></dt><dd><p>Unitless viscosity parameter as per Shakura &amp; Sunyaev.
+Default is <span class="math notranslate nohighlight">\(10^{-3}\)</span>.</p>
+</dd>
+<dt><strong>vfrag, vfin, vfout</strong><span class="classifier">float</span></dt><dd><p>Fragmentation velocity threshold (cm/s) for pebbles.
+If <cite>snowmode</cite> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, then <cite>vfrag</cite> is used. Otherwise,
+<cite>vfin</cite> and <cite>vfout</cite> refer to values inside and outside the snow
+line. Defaults are 1000, 100, 1000.</p>
+</dd>
+<dt><strong>rcrit</strong><span class="classifier">float</span></dt><dd><p>Critical radius (au) of disk gas surface density distribution,
+beyond which the surface density drops exponentially.
+Default is 30.</p>
+</dd>
+<dt><strong>snowmode</strong><span class="classifier">{‘none’, ‘evol’, ‘temp’, float}</span></dt><dd><p>Method used to determine location of the snow line, and where
+dust, solid composition, and pebble properties differ.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>‘none’<span class="classifier">str</span></dt><dd><p>There is no snow line.</p>
+</dd>
+<dt>‘evol’<span class="classifier">str</span></dt><dd><p>Sets and evolves position according to disk properties
+like the alpha, <span class="math notranslate nohighlight">\(Sigma_0, gas\)</span> Sigma Gas, and
+decreasing dust/gas fraction. Scaled from Savvidou et.
+al. 2020 Eq 8.</p>
+</dd>
+<dt>‘temp’<span class="classifier">str</span></dt><dd><p>Sets position based on disk temperature &gt;= 160 K. If
+‘movetemp’ is True, the disk temperature will decrease
+by (a pseudo-physical) scaling with the dust/gas
+fraction.</p>
+</dd>
+<dt>float</dt><dd><p>Sets the position directly (au). If ‘movetemp’ is True,
+the disk temperature will decrease by (a
+pseudo-physical) scaling with the dust/gas fraction.</p>
+</dd>
+</dl>
+</div></blockquote>
+</dd>
+<dt><strong>movetemp</strong><span class="classifier">bool, default False</span></dt><dd><p>Experimental: determines if the snow line evolves when
+<cite>snowmode</cite> is ‘temp’ or float. Currently an arbitrary function
+of fDG to approximate evolution calculated with ‘evol’.</p>
+</dd>
+<dt><strong>MSol</strong><span class="classifier">float</span></dt><dd><p>Stellar mass, in solar mass units. Default is 1.0.</p>
+</dd>
+<dt><strong>dmf</strong><span class="classifier">float</span></dt><dd><p>Disk mass fraction. If <cite>dmf</cite> &lt; 1.0, then sets the total (gas +
+solid) initial mass of disk as fraction of the stellar mass. If
+<cite>dmf</cite> &gt; 1.0, then it represents the total starting solid mass,
+in Earth masses, and calculates the full disk mass using ‘z0’.
+Setting the solid (dust) mass directly may be useful for other
+model comparison. Default is 0.2.</p>
+</dd>
+<dt><strong>z0</strong><span class="classifier">float</span></dt><dd><p>Metallicity of the disk, specifically - the initial dust/gas
+fraction. Default is 0.0134.</p>
+</dd>
+<dt><strong>tmode</strong><span class="classifier">{‘simp’, ‘ida2016’}</span></dt><dd><p>Change temperature profiles between a simple power law that
+scales with stellar mass (default), or based on Ida et al. 2016
+that accounts for viscous/irradation mechanisms. See Ida et al.
+2016 Eq 7 and Eq 8.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>st</strong><span class="classifier">ndarray</span></dt><dd><p>Flux-averaged Stokes number of pebbles at given [t,r].</p>
+</dd>
+<dt><strong>flux</strong><span class="classifier">ndarray</span></dt><dd><p>Mass flux of pebbles at given [t,r].</p>
+</dd>
+<dt><strong>rgrid, tgrid</strong><span class="classifier">ndarray</span></dt><dd><p>Array containing positions and times across disk lifetime.
+Typically define shape for other disk property arrays (i.e. over
+the disk radius and with time). Units cgs.</p>
+</dd>
+<dt><strong>SigmaGas, SigmaDust</strong><span class="classifier">ndarray</span></dt><dd><p>Describing the gas and dust surface density. Units of g/cm2.</p>
+</dd>
+<dt><strong>msolids</strong><span class="classifier">float</span></dt><dd><p>Initial total solid dust mass of disk, in grams.</p>
+</dd>
+<dt><strong>mdisk</strong><span class="classifier">float</span></dt><dd><p>Initial total disk mass (gas + solids), in grams.</p>
+</dd>
+<dt><strong>Temp</strong><span class="classifier">ndarray</span></dt><dd><p>Temperature profile, units K.</p>
+</dd>
+<dt><strong>Mstar</strong><span class="classifier">float</span></dt><dd><p>Stellar mass in grams.</p>
+</dd>
+<dt><strong>eta</strong><span class="classifier">ndarray</span></dt><dd><p>Gas pressure gradient - r only.</p>
+</dd>
+<dt><strong>Hgas</strong><span class="classifier">ndarray</span></dt><dd><p>Gas scale height - r only.</p>
+</dd>
+<dt><strong>fDG</strong><span class="classifier">float</span></dt><dd><p>Disk average dust/gas fraction. Set with instance creation,
+decreases if <cite>snowmode</cite> is evol.</p>
+</dd>
+<dt><strong>snowline_i, snowline_au</strong><span class="classifier">ndarray</span></dt><dd><p>Position of the snow line at each time (i.e. len(tgrid)), as the
+closest index in rgrid, or in au.</p>
+</dd>
+<dt><strong>comp</strong><span class="classifier">ndarray</span></dt><dd><p>Density of solids at each [t,r], in g/cm3. Used to initialize
+seed compositional density.</p>
+</dd>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name that can be separate from that of <code class="docutils literal notranslate"><span class="pre">Disk</span></code>, used in some
+plotting.</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float</span></dt><dd><p>Alpha-viscosity parameter.</p>
+</dd>
+<dt><strong>snowmode</strong><span class="classifier">str or float</span></dt><dd><p>Records which setting was used to set the snow line.</p>
+</dd>
+<dt><strong>MSol</strong><span class="classifier">float</span></dt><dd><p>Stellar mass in solar mass units.</p>
+</dd>
+<dt><strong>dmf</strong><span class="classifier">float</span></dt><dd><p>Disk mass fraction.</p>
+</dd>
+<dt><strong>fullHgas, fulletas</strong><span class="classifier">ndarray</span></dt><dd><p>Future: same as <code class="docutils literal notranslate"><span class="pre">eta</span></code> and <code class="docutils literal notranslate"><span class="pre">Hgas</span></code> above, except for all
+[t,r]. Intended for development of gas evolution.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>inspect(plots=False)</strong></p></td>
+<td><p>Prints basic informaiton about Disk, option to create plots.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="thePPOLsCode.Disk.inspect">
+<span class="sig-name descname"><span class="pre">inspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plots</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.Disk.inspect" title="Link to this definition"></a></dt>
+<dd><p>Convenience function to print basic disk properties.</p>
+<p>Quickly prints basic physical properties of the disk. Option
+to create plots of st, flux, and surface density profiles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>plots</strong><span class="classifier">bool, default=False</span></dt><dd><p>If True, plots 1) <cite>st</cite>, <cite>flux</cite> every 10 timesteps, 2) Gas
+and dust surface density profiles.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thePPOLsCode.Miso">
+<span class="sig-prename descclassname"><span class="pre">thePPOLsCode.</span></span><span class="sig-name descname"><span class="pre">Miso</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lociso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hgasiso</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.Miso" title="Link to this definition"></a></dt>
+<dd><p>Returns pebble isolation mass, Earth masses.</p>
+<p>Prefactor set to 20 Em, but see literature for discussion between 20
+or 40 for prefactor.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thePPOLsCode.RfromD">
+<span class="sig-prename descclassname"><span class="pre">thePPOLsCode.</span></span><span class="sig-name descname"><span class="pre">RfromD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.RfromD" title="Link to this definition"></a></dt>
+<dd><p>Calculate radius from mass and density i.e. d=m/v.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="thePPOLsCode.Seeds">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">thePPOLsCode.</span></span><span class="sig-name descname"><span class="pre">Seeds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seeds_au</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tintro</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.Seeds" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#thePPOLsCode.Seeds.grow" title="thePPOLsCode.Seeds.grow"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grow</span></code></a>([mode, epmode, pref])</p></td>
+<td><p>Grows protoplanet seed masses by pebble accretion.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#thePPOLsCode.Seeds.gtplot" title="thePPOLsCode.Seeds.gtplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gtplot</span></code></a>([xlim, ylim, ysnow])</p></td>
+<td><p>Convenience plotter for single a single run.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="thePPOLsCode.Seeds.grow">
+<span class="sig-name descname"><span class="pre">grow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'isocutfiltfrac'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epmode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'setf'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pref</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.Seeds.grow" title="Link to this definition"></a></dt>
+<dd><p>Grows protoplanet seed masses by pebble accretion.</p>
+<p>Grows the protoplanet seeds described by Seeds in the disk
+described by Disk. See theory and description in paper.
+Protoplanets are grown at each time step, starting from the
+outside in. This facilitates calculation of filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mode</strong><span class="classifier">{‘isocutfiltfrac’, ‘filtfrac’, ‘filtraw’, ‘isocut’}</span></dt><dd><p>Sets certain growth modes regarding filtering of inward
+pebbles, and whether to truncate protoplanet growth at the
+pebble isolation mass. Strings can be combined in any order
+but must be exact. Ex. to filter the physical amount of
+pebbles and cut off growth at isolation mass, use
+‘filtrawisocut’.</p>
+</dd>
+<dt><strong>epmode</strong><span class="classifier">string, default=’setf’</span></dt><dd><p>Accretion mode used in epsilon to specifiy, e.g. 2dset,
+3dbalf.</p>
+</dd>
+<dt><strong>pref</strong><span class="classifier">float, default=20</span></dt><dd><p>Mathematical prefactor (Earth masses) used to calculate
+pebble isolation mass, as values differ among literature.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>massgained</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>New mass accreted per seed per time step, Earth masses.</p>
+</dd>
+<dt><strong>cumulmass</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Total cumulative mass of seed per time step, Earth masses.</p>
+</dd>
+<dt><strong>finalmass</strong><span class="classifier">ndarray [s]</span></dt><dd><p>Final masses of each seed, Earth masses.</p>
+</dd>
+<dt><strong>preflux, fluxpast</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Represents the time-integrated mass in pebbles drifting past
+a given seed mass location. <code class="docutils literal notranslate"><span class="pre">preflux</span></code> corresponds to mass
+before any pebbles are removed from flux (filtering);
+fluxpast describes the actual mass in pebbles that make it
+past a seed, accounting for filtering.</p>
+</dd>
+<dt><strong>eff</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Fraction of drifting pebbles that accrete onto seed.
+Calculated via epsilon.</p>
+</dd>
+<dt><strong>isos</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Pebble isolation mass threshold per seed, Earth masses.</p>
+</dd>
+<dt><strong>madeiso, isotime</strong><span class="classifier">ndarray [s]</span></dt><dd><p>Indices of seeds_au that reached their pebble isolation mass
+and at which index of tgrid did that occur. These are
+recorded “backwards”, but since they refer to the seed_au
+and time index.</p>
+</dd>
+<dt><strong>qps</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Protoplanet seed:stellar mass ratio, per seed per time.
+Quantity used in pebble_predictor.</p>
+</dd>
+<dt><strong>rads</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Future: Protoplanet radii, cm, used for some varitions of
+epmode. Currently stops recording a seeds radius after it
+reaches iso.</p>
+</dd>
+<dt><strong>epmode</strong><span class="classifier">string</span></dt><dd><p>Records the epmode used to run grow.</p>
+</dd>
+<dt><strong>seedcomp</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Per seed bulk density, g/cm3.</p>
+</dd>
+<dt><strong>wmf</strong><span class="classifier">ndarray [s,t]</span></dt><dd><p>Per seed water mass fraction, i.e. fraction of total mass
+that is water. Unitless.</p>
+</dd>
+<dt><strong>tpmass</strong><span class="classifier">ndarray [t]</span></dt><dd><p>Total mass contained in protoplanet seeds per time, Earth
+masses.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="thePPOLsCode.Seeds.gtplot">
+<span class="sig-name descname"><span class="pre">gtplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.07,</span> <span class="pre">25]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.00075,</span> <span class="pre">40]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ysnow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.105</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.Seeds.gtplot" title="Link to this definition"></a></dt>
+<dd><p>Convenience plotter for single a single run.</p>
+<p>Quick plotting feature to show protoplanet masses, water mass
+fraction, pebble isolation mass at each seed location, and the
+position/evolution of the snow line (if applicable).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>xlim, ylim</strong><span class="classifier">[min, max]</span></dt><dd><p>Sets axis limits for plot, au.</p>
+</dd>
+<dt><strong>ysnow</strong><span class="classifier">float</span></dt><dd><p>Fine placement control of the label and arrow for the snow
+line. Arrow will be -0.015 label, in axis units.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><dl class="simple">
+<dt>title<span class="classifier">str</span></dt><dd><p>User can specify a title of any string text. Default
+title displays the stellar mass / dmf / number of seeds.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="thePPOLsCode.lumscale">
+<span class="sig-prename descclassname"><span class="pre">thePPOLsCode.</span></span><span class="sig-name descname"><span class="pre">lumscale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">msol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#thePPOLsCode.lumscale" title="Link to this definition"></a></dt>
+<dd><p>Luminosity based on stellar mass, currently L ~ M^3.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Tutorial.html" class="btn btn-neutral float-left" title="Tutorial &amp; Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="seealso.html" class="btn btn-neutral float-right" title="See Also" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, S. McCloat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

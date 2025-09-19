@@ -1,0 +1,278 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OL18 module &mdash; The PPOLs Model 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="PP module" href="PP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            The PPOLs Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting%20Started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial.html">Tutorial &amp; Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thePPOLsCode.html">thePPOLsCode module</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="seealso.html">See Also</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="PP.html">pebble-predictor</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">epsilon</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.eps_23"><code class="docutils literal notranslate"><span class="pre">eps_23()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.eps_2D"><code class="docutils literal notranslate"><span class="pre">eps_2D()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.eps_2D_bal"><code class="docutils literal notranslate"><span class="pre">eps_2D_bal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.eps_3D"><code class="docutils literal notranslate"><span class="pre">eps_3D()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.eps_3D_bal"><code class="docutils literal notranslate"><span class="pre">eps_3D_bal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.eps_set"><code class="docutils literal notranslate"><span class="pre">eps_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.epsilon_general"><code class="docutils literal notranslate"><span class="pre">epsilon_general()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.f_set"><code class="docutils literal notranslate"><span class="pre">f_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.f_set_i"><code class="docutils literal notranslate"><span class="pre">f_set_i()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.heff_app"><code class="docutils literal notranslate"><span class="pre">heff_app()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.hp_YL07"><code class="docutils literal notranslate"><span class="pre">hp_YL07()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.sig_turb"><code class="docutils literal notranslate"><span class="pre">sig_turb()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.v_ast"><code class="docutils literal notranslate"><span class="pre">v_ast()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#OL18.v_circ"><code class="docutils literal notranslate"><span class="pre">v_circ()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">The PPOLs Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="seealso.html">See Also</a></li>
+      <li class="breadcrumb-item active">OL18 module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/OL18.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-OL18">
+<span id="ol18-module"></span><h1>OL18 module<a class="headerlink" href="#module-OL18" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.eps_23">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">eps_23</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">eps2D</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps3D</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.eps_23" title="Link to this definition"></a></dt>
+<dd><p>The mixing expressions to transition between 3D and 2D.
+Essentially, eps23 = min(eps2D, eps3D).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.eps_2D">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">eps_2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delVy</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.eps_2D" title="Link to this definition"></a></dt>
+<dd><p>Calculate accretion efficiency in 2D regime.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.eps_2D_bal">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">eps_2D_bal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.eps_2D_bal" title="Link to this definition"></a></dt>
+<dd><p>Equation (A.15) of Paper I</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.eps_3D">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">eps_3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">heff</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.eps_3D" title="Link to this definition"></a></dt>
+<dd><p>Calculate accretion efficiency in 3D regime.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.eps_3D_bal">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">eps_3D_bal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delV</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Rp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hP</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.eps_3D_bal" title="Link to this definition"></a></dt>
+<dd><p>Equation (A.15) of Paper I</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.eps_set">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">eps_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hgas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaz</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.eps_set" title="Link to this definition"></a></dt>
+<dd><p>Provides settling efficiency WITHOUT accounting for the f_set
+modulation factor or ballistic interactions. ASSUMING zero
+eccentricities, inclinations and standard.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.epsilon_general">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">epsilon_general</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">pars</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.epsilon_general" title="Link to this definition"></a></dt>
+<dd><p>Returns the pebble accretion efficiency.</p>
+<p>Accepts a variety of “mode” strings that combine to select between
+pebble accretion modes, e.g., 2d vs 3d, ballistic or settling. This
+code has not been modified from the original of Ormel &amp; Liu.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>mode</strong><span class="classifier">{[2d, 3d,], [f,], [set, bal,]}</span></dt><dd></dd>
+<dt><strong>Used to designate accretion modes, can use in combination.</strong></dt><dd><blockquote>
+<div><p><strong>[2d, 3d,]</strong> 2d (planar) limit; 3d limit; or mix
+(default)</p>
+<p><strong>[f,]</strong> inclusion of fset modulation factor</p>
+<p><strong>[set, bal,]</strong> settling only; ballistic only;
+mix (default); (mix always triggers calculation of fset
+factor)</p>
+</div></blockquote>
+<dl>
+<dt>Examples</dt><dd><p><code class="docutils literal notranslate"><span class="pre">2dset</span></code>  2d (planar), settling regime; EqA4, Paper I</p>
+<p><code class="docutils literal notranslate"><span class="pre">3dsetf</span></code> 3d regime, w/ modulation factor; Eq21 Paper II</p>
+<p><code class="docutils literal notranslate"><span class="pre">set</span></code> interpolation b/w 2d and 3d limits, Eq38 Paper II</p>
+<p><code class="docutils literal notranslate"><span class="pre">2dbalf</span></code> 2d, ballistic regime; EqA15 Paper I</p>
+<p><code class="docutils literal notranslate"><span class="pre">3dbalf</span></code> 3d, ballistic regime; EqA16 Paper I</p>
+<p><code class="docutils literal notranslate"><span class="pre">''</span></code> all effects</p>
+</dd>
+</dl>
+</dd>
+<dt><strong>**pars</strong></dt><dd><dl class="simple">
+<dt>A list of keyword arguments.</dt><dd><dl class="simple">
+<dt>qp</dt><dd><p>planet-to-star mass ratio</p>
+</dd>
+<dt>tau</dt><dd><p>dimensionless stoping time (tstop*Omega)</p>
+</dd>
+<dt>alphaz</dt><dd><p>turbulence diffusivity parameterization in z-direction</p>
+</dd>
+<dt>taucorr</dt><dd><p>dimensionless turbulence correlation time (tcorr*Omega)</p>
+</dd>
+<dt>hgas</dt><dd><p>gas aspect ratio</p>
+</dd>
+<dt>eta</dt><dd><p>gas dimensionless pressure gradient</p>
+</dd>
+<dt>sigvec</dt><dd><p>turbulence rms velocity components</p>
+</dd>
+<dt>nvec</dt><dd><p>relative strengths (x,y,z) turbulent velocity components</p>
+</dd>
+<dt>Rp</dt><dd><p>planet radius over orbital radius (for ballistic regime)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>SM: The calculations of this module remain unchanged from originals, but
+this documentation has been modified to comply with numpydoc style.</p>
+<p>OL: In case of turbulence, please specify the rms-velocities explicitly
+via sigvec OR based on alphaz using nvec method. If none is given
+then nvec = (1,1,1) is assumed.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.f_set">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">f_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delVvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigPvec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.f_set" title="Link to this definition"></a></dt>
+<dd><p>Exponential decay function to account for transition between
+settling and ballistic regimes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.f_set_i">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">f_set_i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delVi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vast</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.f_set_i" title="Link to this definition"></a></dt>
+<dd><p>Calculates fset for a single direction.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.heff_app">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">heff_app</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hP</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ip</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.heff_app" title="Link to this definition"></a></dt>
+<dd><p>Approximation to the effective scaleheight in case of planet
+inclination (ip&lt;&gt;0). Eq. 26 of OL18.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.hp_YL07">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">hp_YL07</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hgas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alphaz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taucorr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.hp_YL07" title="Link to this definition"></a></dt>
+<dd><p>Returns the particle scaleheight according to Eq.-21 and -28 of
+Youdin &amp; Lithwick (2007).</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.sig_turb">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">sig_turb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alphaz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hgas</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taucorr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.sig_turb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.v_ast">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">v_ast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.v_ast" title="Link to this definition"></a></dt>
+<dd><p>Characteristic velocity for pebble accretion.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="OL18.v_circ">
+<span class="sig-prename descclassname"><span class="pre">OL18.</span></span><span class="sig-name descname"><span class="pre">v_circ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">dumargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OL18.v_circ" title="Link to this definition"></a></dt>
+<dd><p>Circular velocity, Eqs. XXXX of Paper I.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="PP.html" class="btn btn-neutral float-left" title="PP module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, S. McCloat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial &amp; Examples &mdash; The PPOLs Model 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="thePPOLsCode module" href="thePPOLsCode.html" />
+    <link rel="prev" title="Getting Started" href="Getting%20Started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            The PPOLs Model
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Getting%20Started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial &amp; Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#example-1-simple-system-with-static-snow-line">Example 1 - Simple System with Static Snow Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-2-evolving-snow-line">Example 2 - Evolving Snow Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-3-explicit-solid-disk-mass-staggered-formation-time">Example 3 - Explicit Solid Disk Mass &amp; Staggered Formation Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-parameters">Other Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="thePPOLsCode.html">thePPOLsCode module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="seealso.html">See Also</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">The PPOLs Model</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tutorial &amp; Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorial-examples">
+<h1>Tutorial &amp; Examples<a class="headerlink" href="#tutorial-examples" title="Link to this heading"></a></h1>
+<p>Growing planetary systems with pebble snow.
+Download this page as a <a class="reference download internal" download="" href="_downloads/6ea72bbc5910c4a910da4895dba7f2d0/Tutorial.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code></a>.</p>
+<p>Users can model planet formation via pebble snow by:</p>
+<ul class="simple">
+<li><p>create a <code class="docutils literal notranslate"><span class="pre">Disk()</span></code> object (the protoplanetary disk), which predicts
+the pebble mass flux and flux-averaged Stokes number</p></li>
+<li><p>create a <code class="docutils literal notranslate"><span class="pre">Seeds()</span></code> object (the planetesimal seed masses), and</p></li>
+<li><p>use class function <code class="docutils literal notranslate"><span class="pre">Seeds.grow()</span></code> to grow the planetesimals and
+store outputs as attributes</p></li>
+</ul>
+<p><strong>For a full list of parameters, see the documentation</strong> <a class="reference external" href="https://spmccloat.github.io/thePPOLSmodel/thePPOLsCode.html">here</a></p>
+<p>Begin by importing:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import thePPOLsCode as plc
+import numpy as np
+import matplotlib.pyplot as plt
+</pre></div>
+</div>
+<section id="example-1-simple-system-with-static-snow-line">
+<h2>Example 1 - Simple System with Static Snow Line<a class="headerlink" href="#example-1-simple-system-with-static-snow-line" title="Link to this heading"></a></h2>
+<p>This simple case will create a <code class="docutils literal notranslate"><span class="pre">Disk()</span></code> around a 1 solar mass star, a
+disk mass fraction (dmf) of 0.10 (gas + dust = 10% of stellar mass), and
+a snow line set at 3.5 au. By default, alpha = 10^-3 so we do not
+include it this time. The second line <code class="docutils literal notranslate"><span class="pre">disk.inspect()</span></code> is a
+convenience function to print basic information about the disk.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>disk = plc.Disk(MSol=1.0, dmf=0.1, snowmode=3.5)
+disk.inspect() #inspect(plots=True)
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mstar</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="n">MSol</span>
+<span class="n">Disk</span> <span class="n">mass</span> <span class="o">=</span> <span class="mf">0.100</span> <span class="n">MSol</span> <span class="o">/</span> <span class="mi">33295</span> <span class="n">MEarth</span>
+<span class="n">Dust</span> <span class="n">mass</span> <span class="o">=</span>  <span class="mi">446</span> <span class="n">MEarth</span>
+<span class="n">SigmaGas</span><span class="o">/</span><span class="n">Dust</span> <span class="n">at</span> <span class="mi">1</span> <span class="n">AU</span> <span class="o">=</span> <span class="mi">4382</span> <span class="o">/</span> <span class="mi">29</span> <span class="p">[</span><span class="n">g</span><span class="o">/</span><span class="n">cm</span><span class="o">^</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">Snowline</span> <span class="o">=</span> <span class="mf">3.50</span> <span class="n">au</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">disk</span></code> contains many informative attributes, such as the stellar mass,
+disk mass, temperatue profile, and location of the snow line,
+e.g. <code class="docutils literal notranslate"><span class="pre">disk.MSol</span></code>, <code class="docutils literal notranslate"><span class="pre">disk.dmf</span></code>, <code class="docutils literal notranslate"><span class="pre">disk.snowline_au</span></code>.
+The attributes <code class="docutils literal notranslate"><span class="pre">disk.tgrid</span></code> and <code class="docutils literal notranslate"><span class="pre">disk.rgrid</span></code> provide the time and
+spatial dimension of the disk in cgs units (seconds and cm).</p>
+<p>Next, we create planetesimal seed masses at the location of the solar
+system planets, with an initial mass ~Pluto at
+<span class="math notranslate nohighlight">\(10^{-3} M_{\oplus}\)</span>. We also need to specificy which <code class="docutils literal notranslate"><span class="pre">disk</span></code>
+object the seeds belong to. Finally, exectue <code class="docutils literal notranslate"><span class="pre">seeds.grow()</span></code> to make
+your planetary system:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>seeds_au = np.array([0.4, 0.7, 1.0, 1.5, 5, 10, 20, 30, 40]) # locations, au
+mass = 1e-3 # Earth masses
+
+seeds = plc.Seeds(disk=disk, seeds_au=seeds_au, mass=mass)
+seeds.grow()
+</pre></div>
+</div>
+<p>A convenience plotting function exists to show the protoplanet masses,
+water mass fraction, snow line position, and pebble isolation mass:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>seeds.gtplot()
+</pre></div>
+</div>
+<img alt="_images/Tutorial_7_0.png" src="_images/Tutorial_7_0.png" />
+<p>As with <code class="docutils literal notranslate"><span class="pre">Disk</span></code>, there are many attributes added to the <code class="docutils literal notranslate"><span class="pre">Seeds</span></code>
+object that are recorded and at each time step. By default, growth
+proceeds for 10 million years. Thus, growth tracks for each seed mass
+can be plotted using:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>year = 365.25*24*3600
+fig, ax = plt.subplots()
+for i, s in enumerate(seeds_au):
+    ax.plot(disk.tgrid/year, seeds.cumulmass[i], label=&#39;@ {:1.1f}au&#39;.format(s))
+ax.set(yscale=&#39;log&#39;, xscale=&#39;log&#39;, ylabel=&#39;Mass [$M_{\oplus}$]&#39;, xlabel=&#39;Time [yr]&#39;,
+      title=&#39;Individual Growth Tracks&#39;)
+ax.legend()
+</pre></div>
+</div>
+<img alt="_images/Tutorial_9_1.png" src="_images/Tutorial_9_1.png" />
+</section>
+<section id="example-2-evolving-snow-line">
+<h2>Example 2 - Evolving Snow Line<a class="headerlink" href="#example-2-evolving-snow-line" title="Link to this heading"></a></h2>
+<p>Let’s spice things up with another example - this time we will grow 80
+seeds distributed exponentially from 0.5 to 120 AU, starting from
+<span class="math notranslate nohighlight">\(10^{-4} M_{\oplus}\)</span>, around a 0.5<span class="math notranslate nohighlight">\(M_{\odot}\)</span> star, with
+an initial total disk mass fraction that is 1% of the stellar mass, and
+an <strong>evolving</strong> snow line.</p>
+<p>To implement a snow line that is based off disk conditions, and that
+evolves as the dust converts into pebbles (see Equation 5 from McCloat
+et al. 2025), use <code class="docutils literal notranslate"><span class="pre">snowmode='evol'</span></code> during <code class="docutils literal notranslate"><span class="pre">Disk()</span></code> creation:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>disk_2 = plc.Disk(MSol=0.5, dmf=0.01, snowmode=&#39;evol&#39;)
+seeds_au_2 = np.geomspace(0.05, 120, 80)
+mass_2 = 1e-4
+seeds_2 = plc.Seeds(disk=disk_2, seeds_au=seeds_au_2, mass=mass_2)
+seeds_2.grow()
+seeds_2.gtplot(ylim=[1e-5,1e2], xlim=[0.01,1])
+</pre></div>
+</div>
+<img alt="_images/Tutorial_11_1.png" src="_images/Tutorial_11_1.png" />
+<p>Notice how this time the starting and end locations of the snow line are
+marked with the light blue dashed –&gt; solid line. Notice also you can
+tweak the figure limits in the call to <code class="docutils literal notranslate"><span class="pre">gtplot()</span></code>.</p>
+</section>
+<section id="example-3-explicit-solid-disk-mass-staggered-formation-time">
+<h2>Example 3 - Explicit Solid Disk Mass &amp; Staggered Formation Time<a class="headerlink" href="#example-3-explicit-solid-disk-mass-staggered-formation-time" title="Link to this heading"></a></h2>
+<p>Some investigators may be interested in setting the solid disk mass
+explicitly instead of as a total fraction of the stellar mass. This is
+easily accomplished by setting <code class="docutils literal notranslate"><span class="pre">dmf</span> <span class="pre">&gt;</span> <span class="pre">1</span></code>: this will set initial solid
+dust mass, in Earth masses. Users can also adjust the dust-gas ratio of
+the disk using <code class="docutils literal notranslate"><span class="pre">z0</span></code>.</p>
+<p>To change the introduction time of the seeds into the disk,
+i.e. planetesimal seed masses form later at greater distances, use the
+<code class="docutils literal notranslate"><span class="pre">Seeds</span></code> parameter <code class="docutils literal notranslate"><span class="pre">tintro=</span></code>. We can also set the initial mass of
+each planetesimal seed in the same way. Note these arrays need to be the
+same length as the location (<code class="docutils literal notranslate"><span class="pre">seeds_au</span></code>).</p>
+<p>In this example, we will set the dust mass to 600 <span class="math notranslate nohighlight">\(M_{\oplus}\)</span>,
+the disk metallicity (dust-gas ratio) to 0.91, and stagger the
+introduction mass and formation time of the seeds:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>disk_3 = plc.Disk(MSol=0.75, dmf=600, z0=0.91, snowmode=&#39;temp&#39;)
+
+n = 80  # the number of seeds
+seeds_au_3 = np.geomspace(0.05, 120, n)
+mass_3 = np.geomspace(1e-5, 1e-2, n)
+tintro = np.geomspace(1e3, 5e5, n)
+seeds_3 = plc.Seeds(disk=disk_3, seeds_au=seeds_au_3, mass=mass_3, tintro=tintro)
+
+seeds_3.grow()
+seeds_3.gtplot(ylim=[1e-5,1e2], xlim=[0.01,100])
+</pre></div>
+</div>
+<img alt="_images/Tutorial_14_3.png" src="_images/Tutorial_14_3.png" />
+<p>In Example 3 above, we also used <code class="docutils literal notranslate"><span class="pre">snowmode='temp'</span></code> to flesh out its
+capability. In this example, several of the seeds just behind the snow
+line grew very efficiently and reached the pebble isolation mass. When
+this occurs, they will essentially block the iwnard flow of pebbles
+behind them and starve the inner seeds of growth.</p>
+</section>
+<section id="other-parameters">
+<h2>Other Parameters<a class="headerlink" href="#other-parameters" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tempmode</span></code>: temperature, by default, the disk is set with a power law
+temperature profile. An alternate temperature profile from Ida et
+al. 2016 that accounts for viscous and irradiation heating is also
+available. Use <code class="docutils literal notranslate"><span class="pre">tempmode</span> <span class="pre">=</span> <span class="pre">'ida2016'</span></code>.</p>
+<p>The main functionality of the PPOLs Model is to enable flexible
+efficient planetary assembly via pebble snow, tracking the mass and
+water mass fraction of growing seed masses. Users can change the stellar
+mass, disk mass, snow line position in a variety of ways. Be sure to
+explore the docs for all the options and review the published paper
+McCloat et al. (2025).</p>
+<p>Many useful physical parameters are available as attributes in the Disk
+or Seeds object, and most paramaters are recorded as functions of both
+radial position (au) and time. Please reach out to <a class="reference external" href="mailto:spmccloat&#37;&#52;&#48;gmail&#46;com">spmccloat<span>&#64;</span>gmail<span>&#46;</span>com</a>
+with questions.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Getting%20Started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="thePPOLsCode.html" class="btn btn-neutral float-right" title="thePPOLsCode module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, S. McCloat.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
